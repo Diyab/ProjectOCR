@@ -26,9 +26,12 @@ def upload_file():
       f.save('/home/ubuntu/Diyab/uploads/out.pdf')
       print(f)
       images = convert_from_path('/home/ubuntu/Diyab/uploads/out.pdf')
+      i=0
+      txt=""
       for page in images:
-          page.save('/home/ubuntu/Diyab/out.jpg','JPEG')
-          txt = pys.image_to_string(Image.open('/home/ubuntu/Diyab/out.jpg'))
+          page.save('/home/ubuntu/Diyab/out'+str(i)+'.jpg','JPEG')
+          txt = txt+pys.image_to_string(Image.open('/home/ubuntu/Diyab/out'+str(i)+'.jpg'))
+          i=i+1
       return txt
 
 
